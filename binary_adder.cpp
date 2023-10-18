@@ -54,21 +54,23 @@ vector<int> OLDAddBinary(vector<int> binaryVector1, vector<int> binaryVector2) {
 vector<int> AddBinary(vector<int> vect1, vector<int> vect2) {
     vector<int> binarySumVector;
     int carry = 0;
-    
+    int sum;
+
 
     for (int i = 0; i < vect1.size(); i++) {
-        if ((vect1.at(i) + vect2.at(i) + carry) == 3) {
+        sum = vect1.at(i) + vect2.at(i) + carry;
+        if (sum == 3) {
             binarySumVector.push_back(1);
         }
-        else if ((vect1.at(i) + vect2.at(i) + carry) == 2) {
+        else if (sum == 2) {
             binarySumVector.push_back(0);
             carry = 1;
         }
-        else if ((vect1.at(i) + vect2.at(i) + carry) == 1) {
+        else if (sum == 1) {
             binarySumVector.push_back(1);
             carry = 0;
         }
-        else if ((vect1.at(i) + vect2.at(i) + carry) == 0) {
+        else if (sum == 0) {
             binarySumVector.push_back(0);
         }
     }
@@ -79,6 +81,7 @@ vector<int> AddBinary(vector<int> vect1, vector<int> vect2) {
 
     return binarySumVector;
 }
+
 
 int main() {
     int inputNum1;
@@ -96,17 +99,23 @@ int main() {
     if (inputNum1 == 0) {
         binaryVector1.push_back(0);
     }
+    else {
+        while (inputNum1 >= 1) {
+            binaryVector1.push_back(inputNum1 % 2);
+            inputNum1 = inputNum1 / 2;
+        }
+    }
     if (inputNum2 == 0) {
         binaryVector2.push_back(0);
     }
-    while (inputNum1 >= 1) {
-        binaryVector1.push_back(inputNum1 % 2);
-        inputNum1 = inputNum1 / 2;
+    else {
+        while (inputNum2 >= 1) {
+            binaryVector2.push_back(inputNum2 % 2);
+            inputNum2 = inputNum2 / 2;
+        }
     }
-    while (inputNum2 >= 1) {
-        binaryVector2.push_back(inputNum2 % 2);
-        inputNum2 = inputNum2 / 2;
-    }
+    
+    
     
 
 //make vector length equal. adds to back because order is reversed  
