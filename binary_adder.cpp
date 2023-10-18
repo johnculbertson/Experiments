@@ -4,7 +4,7 @@
 using namespace std;
 
 
-///// TAKES TWO INTS positive up to 32 bits, CONVERTS TO BINARY, ADDS IN BINARY, CONVERTS BACK TO INT AND PRINTS poop
+///// TAKES TWO INTS positive up to 32 bits, CONVERTS TO BINARY, ADDS IN BINARY, CONVERTS BACK TO INT AND PRINTS
 
 // Old version - olny works for some numbers
 vector<int> OLDAddBinary(vector<int> binaryVector1, vector<int> binaryVector2) {
